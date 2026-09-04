@@ -1,8 +1,3 @@
-<#
-.SYNOPSIS
-    Installs (if needed) and connects to Microsoft Graph for the IAM lab.
-    Run this once at the start of every session, before any other script.
-#>
 
 $RequiredModules = @(
     'Microsoft.Graph.Authentication',
