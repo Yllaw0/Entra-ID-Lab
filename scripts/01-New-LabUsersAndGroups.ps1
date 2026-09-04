@@ -1,10 +1,3 @@
-<#
-.SYNOPSIS
-    Bulk-creates the lab's simulated users and department groups from
-    ../data/lab-users.csv, instead of clicking through the portal one at a time.
-.NOTES
-    Run 00-Connect-Graph.ps1 first, in the same PowerShell session.
-#>
 
 . "$PSScriptRoot/Config.ps1"
 
