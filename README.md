@@ -1,4 +1,4 @@
-# Entra ID Lab
+# IAM Home Lab — Microsoft Entra ID
 
 Identity and access management lab for a simulated ~12-person company across
 three departments (IT, Finance, Sales), built and automated entirely with the
