@@ -1,12 +1,3 @@
-<#
-.SYNOPSIS
-    Makes specific lab users ELIGIBLE (not actively assigned) for admin roles via PIM,
-    so nobody holds standing admin rights - they activate just-in-time with a
-    justification and a time limit when they actually need it.
-.NOTES
-    Requires an active Entra ID P2 license on the tenant. Run 00-Connect-Graph.ps1 first.
-#>
-
 . "$PSScriptRoot/Config.ps1"
 Import-Module Microsoft.Graph.Identity.Governance
 
