@@ -1,12 +1,3 @@
-<#
-.SYNOPSIS
-    Registers a test application (simulating SSO to a SaaS app), then assigns the
-    Sales department group as its only authorized users - access driven by group
-    membership instead of assigning individuals one at a time.
-.NOTES
-    Run 00-Connect-Graph.ps1 first.
-#>
-
 . "$PSScriptRoot/Config.ps1"
 Import-Module Microsoft.Graph.Applications
 
