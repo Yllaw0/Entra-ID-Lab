@@ -1,4 +1,4 @@
-# IAM Home Lab — Microsoft Entra ID
+# Microsoft Entra ID - IAM Home Lab
 
 Identity and access management lab for a simulated ~12-person company across
 three departments (IT, Finance, Sales), built and automated entirely with the
@@ -11,20 +11,11 @@ Microsoft Graph PowerShell SDK.
 - Recurring access reviews for periodic recertification of group membership
 - Group-based application access instead of per-user assignment
 - Bulk identity operations and reporting done through scripted automation
-  rather than manual portal clicks
-
-## Prerequisites
-
-- A Microsoft Entra ID tenant with a **P2** license (required for PIM and
-  Access Reviews)
-- Windows PowerShell 5.1+ or PowerShell 7+
-- An account with sufficient admin rights to create users, groups, CA
-  policies, PIM assignments, access reviews, and app registrations
 
 ## Setup
 
-1. Edit `scripts/Config.ps1` and set `$TenantDomain` to your tenant's default
-   domain (Entra admin center → Identity → Overview).
+1. Edit `scripts/Config.ps1` and set `$TenantDomain` to the tenant's default
+   domain.
 2. Open PowerShell in the `scripts` folder and run the scripts **in order**:
 
    ```powershell
@@ -44,9 +35,9 @@ Microsoft Graph PowerShell SDK.
 > command isn't found, run `Find-MgGraphCommand -Command <partial-name>` to
 > locate the current name for your installed version.
 
-## Evidence
+## Environment Setup
 
-Screenshots from an actual run against a live Entra ID P2 tenant, in order:
+Screenshots from an actual run against a live Entra tenant, in order:
 
 **1. Tenant domain confirmed**
 ![Tenant domain](screenshots/01-tenant-domain-confirmed.png)
@@ -89,27 +80,3 @@ Confirmed in the portal:
 ![IAM report](screenshots/07-iam-report-generated.png)
 `06-Get-IAMReport.ps1` exporting sign-in, PIM eligibility, and group membership data to CSV.
 
-## Design decisions worth calling out in an interview
-
-- **Conditional Access policies ship in report-only mode.** Enforcing an
-  untested MFA policy tenant-wide is how you lock yourself out. Report-only
-  lets you check sign-in logs for a few days before flipping to enforced.
-- **No standing admin roles.** `03` grants PIM *eligibility*, not active
-  assignment — admins request activation with a justification and a time
-  limit when they actually need the role, which is the real mitigation for
-  compromised-credential blast radius.
-- **App access is group-based, not per-user.** Add someone to Sales and
-  they inherit app access; remove them and it's revoked automatically. This
-  is also what makes the access review meaningful — reviewing group
-  membership *is* reviewing app access.
-- **Reporting is scripted, not manual.** `06` is the difference between
-  being able to say "I checked" and being able to produce a CSV of exactly
-  who signed in from where, who's eligible for what role, and who's in which
-  group, on demand.
-
-## What's intentionally out of scope here
-
-Lifecycle workflows (automated joiner/mover/leaver), custom RBAC roles
-beyond the built-ins, and multi-tenant scenarios weren't included, to keep
-this lab focused and shippable. Worth mentioning as "next steps" in a
-portfolio writeup if you want to signal awareness of the fuller picture.
