@@ -1,12 +1,3 @@
-<#
-.SYNOPSIS
-    Pulls together three reports for the lab: recent sign-ins, current PIM-eligible
-    role assignments, and department group membership. Exports each to CSV in
-    ../reports. This is the piece that turns clicks into evidence for a resume.
-.NOTES
-    Requires AuditLog.Read.All. Run 00-Connect-Graph.ps1 first.
-#>
-
 Import-Module Microsoft.Graph.Reports
 Import-Module Microsoft.Graph.Identity.Governance
 Import-Module Microsoft.Graph.Groups
