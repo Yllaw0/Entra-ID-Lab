@@ -1,12 +1,3 @@
-<#
-.SYNOPSIS
-    Creates the lab's core Conditional Access policies: require MFA for everyone,
-    and block legacy authentication protocols.
-.NOTES
-    Policies are created in report-only mode so you can review sign-in impact
-    before switching them to fully enabled. Run 00-Connect-Graph.ps1 first.
-#>
-
 Import-Module Microsoft.Graph.Identity.SignIns
 
 # Policy 1: Require MFA for all users
