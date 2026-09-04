@@ -1,1 +1,1 @@
-$Global:TenantDomain = "yourtenant.onmicrosoft.com"
+$Global:TenantDomain = "IdentitySandbox099.onmicrosoft.com"
