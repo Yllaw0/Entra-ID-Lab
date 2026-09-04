@@ -1,11 +1,3 @@
-<#
-.SYNOPSIS
-    Creates a recurring access review on one of the lab's department groups, so a
-    reviewer has to periodically recertify who still belongs in it.
-.NOTES
-    Requires Entra ID P2. Run 00-Connect-Graph.ps1 first.
-#>
-
 . "$PSScriptRoot/Config.ps1"
 Import-Module Microsoft.Graph.Identity.Governance
 
